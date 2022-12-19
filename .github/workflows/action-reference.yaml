@@ -1,0 +1,27 @@
+name: Invalid actions
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: hello-demo
+    steps:
+      # Reqular action
+      - uses: actions/checkout@v3
+
+      # Invalid input
+      - uses: actions/checkout@v3
+        with:
+          notaninput: aaa
+      
+      # Required input
+      - uses: actions/cache@v1
+        with:
+          restore-keys: "some-key"
+
+      # Required input without `with`
+      - uses: actions/cache@v1
+      # Deprecated input
+      - uses: actions/setup-node@v1
+        with:
+          version: 10
