@@ -1,0 +1,16 @@
+name: Inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        description: 'Name'
+        required: true
+        default: "test"
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - run: echo "${{ inputs.name }}"
